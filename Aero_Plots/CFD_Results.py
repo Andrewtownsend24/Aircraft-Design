@@ -137,8 +137,8 @@ class FileReader:
         
         #print(df1)
        
-        #return df1.drop([0, 15, 16, 18, 19, 20])
-        return df1
+        return df1.drop([0, 15, 16, 18, 19, 20])
+        #return df1
 
 
 

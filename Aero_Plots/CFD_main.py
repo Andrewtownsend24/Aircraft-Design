@@ -10,10 +10,12 @@ plt.style.use('classic')
 #  print("hello")
 plt.close('all')
 
-path = ["Aero_Plots/Tokyo Drift/Design3.csv", "Aero_Plots/Tokyo Drift/Final.csv", "Aero_Plots/Tokyo Drift/Final_payload.csv",
-        "Aero_Plots/Tokyo Drift/TD_final.csv", "Aero_Plots/Tokyo Drift/TD0.csv", "Aero_Plots/Tokyo Drift/TD1.csv"]
+# path = ["Aero_Plots/Tokyo Drift/Design3.csv", "Aero_Plots/Tokyo Drift/Final.csv", "Aero_Plots/Tokyo Drift/Final_payload.csv",
+#         "Aero_Plots/Tokyo Drift/TD_final.csv", "Aero_Plots/Tokyo Drift/TD0.csv", "Aero_Plots/Tokyo Drift/TD1.csv"]
 
-design_Names = ["Design3", "Final", "Final_payload", "TD_final", "TD0", "TD1"]
+path = ["Aero_Plots/Tokyo Drift/Design3.csv"]
+design_Names = ["Design3"]
+# design_Names = ["Design3", "Final", "Final_payload", "TD_final", "TD0", "TD1"]
 
 
 tempurature = 510 # degress rankin 
