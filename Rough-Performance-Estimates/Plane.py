@@ -619,7 +619,8 @@ class _XFLR5Data:
             data.append(i)
 
         file.close()
-
+        
+        
         self._alpha = []
         _alpha_index = -1
         self._cl = []
@@ -634,6 +635,7 @@ class _XFLR5Data:
         for i in data:
 
             data_set = i.split()
+            
             index = 0
             if "angles:" in data_set:
 
@@ -694,11 +696,12 @@ class _XFLR5Data:
 
     def get_start_angle(self):
 
-        return self._start_angle
+        #return self._start_angle
+        return self._alpha[0]
 
     def get_end_angle(self):
 
-        return self._end_angle
+        return self._alpha[-1]
 
 
 # private method to determine in an input is a number

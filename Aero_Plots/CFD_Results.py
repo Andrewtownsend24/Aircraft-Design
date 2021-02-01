@@ -3,15 +3,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class AeroResults:
-    AoA = list(range(-5,11)) 
     beta = [0]*16
 
     def __init__(self, path, tempurature, speed, alt, air_density, chord,half_span):
         self.path = path
         m1 = FileReader(self.path)
         self.matrix = m1.readFile()
-        
+        #self.AoA = range(AoA_start,AoA_end + 1)
+        #self.beta = range(Beta_start, Beta_end+1)
 
+        self.AoA = []
         
         self.lift = []
         self.drag = []
@@ -34,8 +35,15 @@ class AeroResults:
         self.s_ref = self.chord*2*self.half_span # wing Area
         self.q_inf = .5*self.air_density*(self.u_inf1**2) # dynamic pressure
         # super().__init__()
+        print(self.path)
+        print(len(self.matrix))
 
-    
+    def set_AoA(self,AoA_start, AoA_end):
+        self.AoA = list(range(AoA_start, AoA_end+1))
+
+    def get_AoA(self):
+        return self.AoA
+        
     def get_lift(self):
         
         self.lift = []
@@ -50,8 +58,8 @@ class AeroResults:
 
         self.drag = []
 
-        for i in range(0,len(self.matrix)):
-            
+        for i in range(0,len(self.AoA)):
+            #print(i)
             temp = self.matrix.iloc[i,1]*np.cos(self.AoA[i]*np.pi/180)*np.cos(self.beta[i]*np.pi/180) + \
             self.matrix.iloc[i,2]*np.sin(self.AoA[i]*np.pi/180)*np.cos(self.beta[i]*np.pi/180)+ self.matrix.iloc[i,5]*np.sin(self.beta[i]*np.pi/180)
             
@@ -137,8 +145,8 @@ class FileReader:
         
         #print(df1)
        
-        return df1.drop([0, 15, 16, 18, 19, 20])
-        #return df1
+        #return df1.drop([0, 15, 16, 18, 19, 20])
+        return df1
 
 
 
